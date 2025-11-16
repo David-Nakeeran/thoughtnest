@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Comment;
 use App\Models\Journal;
+use App\Models\MoodReport;
 use App\Models\TherapistAssignment;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -36,5 +37,8 @@ class DatabaseSeeder extends Seeder
 
         // 4. Therapist assignments
         TherapistAssignment::factory(10)->create();
+
+        // 5. Mood reports
+        MoodReport::factory(10)->create();
     }
 }
