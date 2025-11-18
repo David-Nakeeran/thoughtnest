@@ -5,16 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    @vite('resources/js/app.js')
     @vite('resources/css/app.css')
     <title>ThoughtNest</title>
 </head>
 
 <body>
-    <header>
+    <header class="flex justify-between">
+        <h1>
+            ThoughNest
+        </h1>
         <nav>
             <x-menu />
-            <x-nav-link href="/login" :active="request()->is('login')">Login</x-nav-link>
-            <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
         </nav>
     </header>
     <main>
