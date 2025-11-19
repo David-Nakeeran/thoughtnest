@@ -2,7 +2,7 @@
     <h1>Desktop menu</h1>
 </div>
 
-<div class="block lg:hidden ms-8">
+<div class="block lg:hidden">
     <div x-data="{ open: false }" x-init="open = false" x-on:click.outside="open = false" @keydown.escape="open = false"
         x-trap="open" role="menu" class="bg-gray-800">
         <button @click="open = !open" :aria-expanded="open" aria-label="main menu"
