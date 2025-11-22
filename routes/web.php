@@ -3,6 +3,7 @@
 use App\Http\Controllers\JournalController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionUserController;
+use App\Http\Controllers\UserDashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -13,7 +14,8 @@ Route::get('/', function () {
 Route::get('/register', [RegisteredUserController::class, 'create']);
 Route::post('/register', [RegisteredUserController::class, 'store']);
 
-Route::get('/login', [SessionUserController::class, 'create']);
+Route::get('/login', [SessionUserController::class, 'create'])->name('login');
 Route::post('/login', [SessionUserController::class, 'store']);
 
-Route::get('/dashboard', [JournalController::class, 'index'])->middleware('auth');
+// Dashboards
+Route::get('/dashboard/user', [UserDashboardController::class, 'create'])->middleware('auth');
