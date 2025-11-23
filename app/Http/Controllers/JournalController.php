@@ -17,8 +17,9 @@ class JournalController extends Controller
 
         $journals = Journal::where('user_id', $request->user()->id)
             ->withCount('comments')
-            ->get();
+            ->latest()
+            ->simplePaginate(6);
 
-        return view('journals.index', ['journal' => $journals]);
+        return view('journals.index', ['journals' => $journals]);
     }
 }
