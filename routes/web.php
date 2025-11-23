@@ -19,3 +19,6 @@ Route::post('/login', [SessionUserController::class, 'store']);
 
 // Dashboards
 Route::get('/dashboard/user', [UserDashboardController::class, 'index'])->middleware('auth');
+
+// User Journal
+Route::get('/journals', [JournalController::class, 'index'])->middleware('auth');
