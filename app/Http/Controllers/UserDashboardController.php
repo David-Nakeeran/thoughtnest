@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserDashboardController extends Controller
 {
-    public function create()
+    public function index()
     {
         $user = Auth::user();
         return view('dashboard.user', ['user' => $user]);
