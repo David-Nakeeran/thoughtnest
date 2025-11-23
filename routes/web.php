@@ -18,4 +18,4 @@ Route::get('/login', [SessionUserController::class, 'create'])->name('login');
 Route::post('/login', [SessionUserController::class, 'store']);
 
 // Dashboards
-Route::get('/dashboard/user', [UserDashboardController::class, 'create'])->middleware('auth');
+Route::get('/dashboard/user', [UserDashboardController::class, 'index'])->middleware('auth');
