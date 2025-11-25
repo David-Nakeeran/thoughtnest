@@ -3,8 +3,8 @@
 </div>
 
 <div class="block lg:hidden">
-    <div x-data="{ open: false }" x-init="open = false" x-on:click.outside="open = false" @keydown.escape="open = false"
-        x-trap="open" role="menu" class="bg-gray-800">
+    <div x-cloak x-data="{ open: false }" x-init="open = false" x-on:click.outside="open = false"
+        @keydown.escape="open = false" x-trap="open" role="menu" class="bg-gray-800">
         <button @click="open = !open" :aria-expanded="open" aria-label="main menu"
             class="flex flex-col justify-center items-center w-8 h-8 cursor-pointer">
             <span class="bg-[#b388ff] block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm"
