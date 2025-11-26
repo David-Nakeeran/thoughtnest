@@ -19,4 +19,9 @@ class JournalPolicy
     {
         return $user->role === 'user';
     }
+
+    public function create(User $user)
+    {
+        return $user->role === 'user';
+    }
 }

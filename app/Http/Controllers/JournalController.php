@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreJournalRequest;
 use App\Models\Journal;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -21,5 +22,16 @@ class JournalController extends Controller
             ->simplePaginate(6);
 
         return view('journals.index', ['journals' => $journals]);
+    }
+
+    public function store(StoreJournalRequest $request)
+    {
+        if ($request->user()->cannot('create', Journal::class)) {
+            abort(403);
+        }
+
+        $createJournal = $request->user()->journals()->create($request->validated());
+
+        return redirect()->with('success', "Your journal entry has been created.");
     }
 }
