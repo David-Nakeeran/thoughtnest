@@ -20,6 +20,7 @@
         </nav>
     </header>
     <main>
+        <x-toast />
         {{ $slot }}
     </main>
     <footer>&copy; 2025 ThoughtNest</footer>
