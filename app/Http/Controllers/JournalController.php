@@ -32,6 +32,8 @@ class JournalController extends Controller
 
         $createJournal = $request->user()->journals()->create($request->validated());
 
-        return redirect()->with('success', "Your journal entry has been created.");
+        $request->session()->flash('success', 'Your journal entry has been created.');
+
+        return redirect('/dashboard/user');
     }
 }
