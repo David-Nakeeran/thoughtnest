@@ -24,6 +24,17 @@ class JournalController extends Controller
         return view('journals.index', ['journals' => $journals]);
     }
 
+    public function show(Request $request, Journal $journal)
+    {
+        if ($request->user()->cannot('view', $journal)) {
+            abort(403);
+        }
+
+        $journal->load('comments');
+
+        return view('journals.show', ['journal' => $journal]);
+    }
+
     public function store(StoreJournalRequest $request)
     {
         if ($request->user()->cannot('create', Journal::class)) {

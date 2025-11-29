@@ -22,5 +22,6 @@ Route::get('/dashboard/user', [UserDashboardController::class, 'index'])->middle
 
 // User Journal
 Route::get('/journals', [JournalController::class, 'index'])->middleware('auth');
+Route::get('/journals/{journal}', [JournalController::class, 'show'])->middleware('auth');
 
 Route::post('/journals', [JournalController::class, 'store'])->middleware('auth');
