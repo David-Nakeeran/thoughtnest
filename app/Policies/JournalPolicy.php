@@ -20,6 +20,11 @@ class JournalPolicy
         return $user->role === 'user';
     }
 
+    public function view(User $user, Journal $journal)
+    {
+        return $user->id === $journal->user_id;
+    }
+
     public function create(User $user)
     {
         return $user->role === 'user';
