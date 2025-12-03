@@ -47,4 +47,9 @@ class JournalController extends Controller
 
         return redirect('/dashboard/user');
     }
+
+    public function update(Request $request, Journal $journal)
+    {
+        // update method
+    }
 }
