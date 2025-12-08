@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreJournalRequest;
+use App\Http\Requests\UpdateJournalRequest;
 use App\Models\Journal;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -48,8 +49,12 @@ class JournalController extends Controller
         return redirect('/dashboard/user');
     }
 
-    public function update(Request $request, Journal $journal)
+    public function update(UpdateJournalRequest $request, Journal $journal)
     {
-        // update method
+        $journal->update($request->validated());
+
+        $request->session()->flash('success', 'Your journal entry has been updated successfully');
+
+        return redirect('/journals/' . $journal->id);
     }
 }

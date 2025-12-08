@@ -29,4 +29,9 @@ class JournalPolicy
     {
         return $user->role === 'user';
     }
+
+    public function update(User $user, Journal $journal)
+    {
+        return $user->role === 'user' && $user->id === $journal->user_id;
+    }
 }
