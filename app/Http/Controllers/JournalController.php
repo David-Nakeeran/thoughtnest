@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DestroyJournalRequest;
 use App\Http\Requests\StoreJournalRequest;
 use App\Http\Requests\UpdateJournalRequest;
 use App\Models\Journal;
@@ -38,10 +39,6 @@ class JournalController extends Controller
 
     public function store(StoreJournalRequest $request)
     {
-        if ($request->user()->cannot('create', Journal::class)) {
-            abort(403);
-        }
-
         $createJournal = $request->user()->journals()->create($request->validated());
 
         $request->session()->flash('success', 'Your journal entry has been created.');
@@ -56,5 +53,11 @@ class JournalController extends Controller
         $request->session()->flash('success', 'Your journal entry has been updated successfully');
 
         return redirect('/journals/' . $journal->id);
+    }
+
+    public function destroy(DestroyJournalRequest $request, Journal $journal)
+    {
+        $journal->delete();
+        return redirect('/journals');
     }
 }

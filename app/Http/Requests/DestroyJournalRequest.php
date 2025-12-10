@@ -2,17 +2,16 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Journal;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreJournalRequest extends FormRequest
+class DestroyJournalRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return $this->user()->can('create', Journal::class);
+        return $this->user()->can('destroy', $this->journal);
     }
 
     /**
@@ -23,7 +22,7 @@ class StoreJournalRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'content' => ['required']
+            //
         ];
     }
 }
