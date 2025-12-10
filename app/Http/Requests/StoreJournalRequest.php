@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Journal;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreJournalRequest extends FormRequest
@@ -11,7 +12,7 @@ class StoreJournalRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return $this->user()->can('create', Journal::class);
     }
 
     /**
