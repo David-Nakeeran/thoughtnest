@@ -7,4 +7,6 @@
     @endforeach
     <p>Created at: {{ date_format($journal['created_at'], 'd / m / Y') }}</p>
     <x-journal-modal :update="true" :journal="$journal" type="Edit journal entry" />
+    <x-delete-dialog-box title="Delete Journal Entry" message="Are you sure you want to delete this journal entry?"
+        :actionRoute="route('journals.destroy', $journal)" />
 </x-layout>
