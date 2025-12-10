@@ -34,4 +34,9 @@ class JournalPolicy
     {
         return $user->role === 'user' && $user->id === $journal->user_id;
     }
+
+    public function destroy(User $user, Journal $journal)
+    {
+        return $user->role === 'user' && $user->id === $journal->user_id;
+    }
 }
