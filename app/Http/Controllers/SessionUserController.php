@@ -20,7 +20,15 @@ class SessionUserController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('dashboard/user');
+            $user = auth()->user();
+
+            if ($user->role === 'user') {
+                return redirect()->intended('dashboard/user');
+            } else if ($user->role === 'therapist') {
+                return redirect()->intended('dashboard/therapist');
+            } else if ($user->role === 'admin') {
+                return redirect()->intended('dashboard/admin');
+            }
         }
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',

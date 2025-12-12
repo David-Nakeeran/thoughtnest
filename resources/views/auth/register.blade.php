@@ -1,5 +1,5 @@
 <x-layout>
-    <form method="POST" action="/register" class="flex flex-col">
+    <form method="POST" action="{{ $action }}" class="flex flex-col">
         @csrf
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required>
