@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RegisterUserRequest;
+use App\Http\Requests\RegisterTherapistRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,15 +11,15 @@ class RegisteredTherapistController extends Controller
 {
     public function create()
     {
-        return view('auth.register');
+        return view('auth.register', ['action' => route('register.therapist')]);
     }
 
-    public function store(RegisterUserRequest $request)
+    public function store(RegisterTherapistRequest $request)
     {
-        $therapist = User::create($request);
-        $therapist['role'] = 'therapist';
-        Auth::login($therapist->validated());
+        $therapist = User::create($request->validated());
+        $therapist->role = 'therapist';
+        $therapist->save();
 
-        return redirect('/');
+        return redirect('/dashboard/admin');
     }
 }
