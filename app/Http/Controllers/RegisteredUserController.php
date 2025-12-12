@@ -11,7 +11,7 @@ class RegisteredUserController extends Controller
 {
     public function create()
     {
-        return view('auth.register');
+        return view('auth.register', ['action' => route('register.user')]);
     }
 
     public function store(RegisterUserRequest $request)
@@ -19,6 +19,6 @@ class RegisteredUserController extends Controller
         $user = User::create($request->validated());
         Auth::login($user);
 
-        return redirect('/dashboard');
+        return redirect('/dashboard/user');
     }
 }
