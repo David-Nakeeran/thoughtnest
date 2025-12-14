@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\RegisteredTherapistController;
 use App\Http\Controllers\SessionUserController;
 use App\Http\Controllers\UserDashboardController;
+use App\Http\Middleware\Role;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,7 +25,7 @@ Route::get('/login', [SessionUserController::class, 'create'])->name('login');
 Route::post('/login', [SessionUserController::class, 'store']);
 
 // Dashboards
-Route::get('/dashboard/user', [UserDashboardController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/user', [UserDashboardController::class, 'index'])->middleware(['auth', Role::class . ':user']);
 Route::get('/dashboard/admin', [AdminDashboardController::class, 'index'])->middleware('auth');
 
 // User Journal
