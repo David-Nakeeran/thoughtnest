@@ -11,8 +11,12 @@ class AdminTherapistController extends Controller
 {
     public function index(Request $request)
     {
-        $users = User::where('role', 'user')->whereDoesntHave('therapists')->get();
+        $users = User::where('role', 'user')->doesntHave('therapists')->get();
 
-        return view('admin.index', ['unassignedUsers' => $users]);
+        $therapists = User::where('role', 'therapist')->get();
+
+        return view('admin.index', ['unassignedUsers' => $users, 'therapists' => $therapists]);
     }
+
+    public function store(Request $request) {}
 }
