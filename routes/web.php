@@ -40,3 +40,4 @@ Route::post('/journals', [JournalController::class, 'store'])->middleware(['auth
 
 // Admin routes
 Route::get('/therapist-assignments', [AdminTherapistController::class, 'index'])->middleware(['auth', Role::class . ':admin']);
+Route::post('/therapist-assignments/{user}', [AdminTherapistController::class, 'store'])->middleware(['auth', Role::class . ':admin']);
