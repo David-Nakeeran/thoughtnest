@@ -7,6 +7,7 @@ use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\RegisteredTherapistController;
 use App\Http\Controllers\SessionUserController;
 use App\Http\Controllers\TherapistDashboardController;
+use App\Http\Controllers\TherapistUserController;
 use App\Http\Controllers\UserDashboardController;
 use App\Http\Middleware\Role;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,9 @@ Route::patch('/journals/{journal}', [JournalController::class, 'update'])->middl
 Route::delete('/journals/{journal}', [JournalController::class, 'destroy'])->name('journals.destroy')->middleware(['auth', Role::class . ':user']);
 
 Route::post('/journals', [JournalController::class, 'store'])->middleware(['auth', Role::class . ':user']);
+
+// Therapist routes
+Route::get('/therapist/users/{user}/journals', [TherapistUserController::class, 'index'])->middleware(['auth', Role::class . ':therapist']);
 
 // Admin routes
 Route::get('/therapist-assignments', [AdminTherapistController::class, 'index'])->middleware(['auth', Role::class . ':admin']);
