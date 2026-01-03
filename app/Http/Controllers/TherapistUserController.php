@@ -15,10 +15,17 @@ class TherapistUserController extends Controller
         }
 
         $journals = Journal::where('user_id', $user->id)
-            ->with('comments')
+            ->withCount('comments')
             ->latest()
             ->paginate(6);
 
-        return view('therapist.users.journals.index', ['journals' => $journals]);
+        return view('therapist.users.journals.index', ['journals' => $journals, 'user' => $user]);
+    }
+
+    public function show(Request $request, User $user, Journal $journal)
+    {
+        if ($request->user()->cannot('viewJournal', $user)) {
+            abort(403);
+        }
     }
 }

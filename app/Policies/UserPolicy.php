@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Models\Journal;
 use App\Models\TherapistAssignment;
 use App\Models\User;
 
@@ -22,6 +23,11 @@ class UserPolicy
 
     public function viewJournals(User $therapist, User $user)
     {
-        return $therapist->role === 'therapist' && TherapistAssignment::where('therapist_id', '=', $therapist->id)->where('user_id', '=', $user->id)->exists();
+        return TherapistAssignment::where('therapist_id', '=', $therapist->id)->where('user_id', '=', $user->id)->exists();
+    }
+
+    public function viewJournal(User $therapist, User $user, Journal $journal)
+    {
+        return TherapistAssignment::where('therapist_id', '=', $therapist->id)->where('user_id', '=', $user->id)->exists() && $journal->user_id === $user->id;
     }
 }
