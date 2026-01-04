@@ -24,8 +24,12 @@ class TherapistUserController extends Controller
 
     public function show(Request $request, User $user, Journal $journal)
     {
-        if ($request->user()->cannot('viewJournal', $user)) {
+        if ($request->user()->cannot('viewJournal', [$user, $journal])) {
             abort(403);
         }
+
+        $journal->load('comments');
+
+        return view('therapist.users.journals.show', ['journal' => $journal]);
     }
 }
