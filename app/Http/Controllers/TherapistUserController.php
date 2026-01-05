@@ -30,6 +30,8 @@ class TherapistUserController extends Controller
 
         $journal->load('comments');
 
-        return view('therapist.users.journals.show', ['journal' => $journal]);
+        return view('therapist.users.journals.show', ['journal' => $journal, 'user' => $user]);
     }
+
+    public function store() {}
 }
