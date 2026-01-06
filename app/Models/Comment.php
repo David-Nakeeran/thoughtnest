@@ -10,6 +10,12 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'journal_id',
+        'user_id',
+        'comment'
+    ];
+
     public function journal(): BelongsTo
     {
         return $this->belongsTo(Journal::class);
