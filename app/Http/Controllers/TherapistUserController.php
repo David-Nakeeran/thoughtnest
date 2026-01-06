@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreTherapistCommentRequest;
 use App\Models\Journal;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -33,5 +34,19 @@ class TherapistUserController extends Controller
         return view('therapist.users.journals.show', ['journal' => $journal, 'user' => $user]);
     }
 
-    public function store() {}
+    public function store(StoreTherapistCommentRequest $request, User $user, Journal $journal)
+    {
+        $createdComment = $request->user()->comments()->create(
+
+            $request->safe()->merge([
+                'journal_id' => $journal->id,
+                'user_id' => $user->id,
+            ])->all()
+        );
+
+        $request->session()->flash('success', 'Your comment has been created.');
+
+        return redirect()
+            ->route('therapist.users.journals.show', [$user, $journal]);
+    }
 }
