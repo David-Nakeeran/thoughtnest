@@ -43,7 +43,7 @@ Route::post('/journals', [JournalController::class, 'store'])->middleware(['auth
 
 // Therapist routes
 Route::get('/therapist/users/{user}/journals', [TherapistUserController::class, 'index'])->middleware(['auth', Role::class . ':therapist']);
-Route::get('/therapist/users/{user}/journals/{journal}', [TherapistUserController::class, 'show'])->middleware(['auth', Role::class . ':therapist']);
+Route::get('/therapist/users/{user}/journals/{journal}', [TherapistUserController::class, 'show'])->middleware(['auth', Role::class . ':therapist'])->name('therapist.users.journals.show');
 Route::post('/therapist/users/{user}/journals/{journal}/comments', [TherapistUserController::class, 'store'])->middleware(['auth', Role::class . ':therapist']);
 
 // Admin routes
