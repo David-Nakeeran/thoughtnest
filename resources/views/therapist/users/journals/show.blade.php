@@ -1,11 +1,11 @@
 <x-layout>
     <h1>Journal</h1>
     <p>{{ $journal['content'] }}</p>
+    <p>Created at: {{ date_format($journal['created_at'], 'd / m / Y') }}</p>
     @foreach ($journal['comments'] as $comment)
         <p>therapist comments: {{ $comment['comment'] }} </p>
         <p>Created at: {{ date_format($comment['created_at'], 'd / m / Y') }}</p>
     @endforeach
-    <p>Created at: {{ date_format($journal['created_at'], 'd / m / Y') }}</p>
     <div x-cloak x-data="{ showModal: false }" @keydown.escape ="showModal=false">
         <button type="button" @click="showModal = ! showModal">Add Comment</button>
         <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black opacity-85"
