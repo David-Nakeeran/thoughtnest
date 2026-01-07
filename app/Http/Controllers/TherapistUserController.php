@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DestroyTherapistCommentRequest;
 use App\Http\Requests\StoreTherapistCommentRequest;
+use App\Models\Comment;
 use App\Models\Journal;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -48,5 +50,12 @@ class TherapistUserController extends Controller
 
         return redirect()
             ->route('therapist.users.journals.show', [$user, $journal]);
+    }
+
+    public function destroy(DestroyTherapistCommentRequest $request, User $user, Journal $journal, Comment $comment)
+    {
+        $comment->delete();
+
+        return redirect()->route('therapist.users.journals.show', ['journal' => $journal, 'user' => $user]);
     }
 }
