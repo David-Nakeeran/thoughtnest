@@ -5,6 +5,12 @@
     @foreach ($journal['comments'] as $comment)
         <p>therapist comments: {{ $comment['comment'] }} </p>
         <p>Created at: {{ date_format($comment['created_at'], 'd / m / Y') }}</p>
+        <x-delete-dialog-box title="Delete Comment" message="Are you sure you want to delete this comment?"
+            :actionRoute="route('comments.destroy', [
+                'user' => $user->id,
+                'journal' => $journal->id,
+                'comment' => $comment->id,
+            ])" />
     @endforeach
     <div x-cloak x-data="{ showModal: false }" @keydown.escape ="showModal=false">
         <button type="button" @click="showModal = ! showModal">Add Comment</button>
