@@ -20,8 +20,21 @@
                 x
             </button>
             <ul>
-                <li><x-nav-link href="/login" :active="request()->is('login')">Login</x-nav-link></li>
-                <li><x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link></li>
+                @guest()
+                    <li><x-nav-link href="/login" :active="request()->is('login')">Login</x-nav-link></li>
+                    <li><x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link></li>
+                @endguest
+                @auth()
+                    <li>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit"
+                                class="text-gray-300 hover:bg-white/5 hover:text-white rounded-md px-3 py-2 text-sm font-medium w-full text-left">
+                                Logout
+                            </button>
+                        </form>
+                    </li>
+                @endauth
             </ul>
         </div>
     </div>
