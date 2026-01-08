@@ -26,6 +26,7 @@ Route::post('/register-therapist', [RegisteredTherapistController::class, 'store
 
 Route::get('/login', [SessionUserController::class, 'create'])->name('login');
 Route::post('/login', [SessionUserController::class, 'store']);
+Route::post('/logout', [SessionUserController::class, 'destroy'])->name('logout');
 
 // Dashboards
 Route::get('/dashboard/user', [UserDashboardController::class, 'index'])->middleware(['auth', Role::class . ':user']);
