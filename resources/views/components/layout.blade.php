@@ -10,8 +10,10 @@
     <title>ThoughtNest</title>
 </head>
 
-<body>
-    <header class="flex justify-between">
+<body class="bg-[#f8fafc] text-[#1c1c1c]">
+    <header x-data="{ scrolled: false }" :class="scrolled ? 'bg-[#f8fafc]/95 shadow-md' : 'bg-[#2365dc]/20 shadow-md'"
+        x-init="window.addEventListener('scroll', (e) => { scrolled = window.scrollY > 50 })"
+        class="fixed top-0 left-0 w-full z-50 flex justify-between px-6 transition-all duration-300">
         <h1>
             ThoughNest
         </h1>
