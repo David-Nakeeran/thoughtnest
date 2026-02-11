@@ -14,7 +14,7 @@
             <span class="bg-[#b388ff] block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm"
                 :class="open ? '-rotate-45 -translate-y-1.5' : 'translate-y-1.5'"></span>
         </button>
-        <div :class="open ? 'translate-x-0' : 'translate-x-full'"
+        <div :class="open ? 'translate-x-0' : 'translate-x-full z-60'"
             class="fixed top-0 right-0 h-screen w-1/2 bg-[#2a2a2c]/95 backdrop-blur-md shadow-lg p-6 flex flex-col items-center gap-4 transition-transform duration-300">
             <button @click="open = !open" class="self-end text-[#b388ff] font-bold text-3xl">
                 x
