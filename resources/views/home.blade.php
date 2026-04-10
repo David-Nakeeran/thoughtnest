@@ -1,158 +1,75 @@
 <x-layout>
-    <section class="min-h-[80vh] bg-[#2365dc] text-[#f8fafc] flex items-center justify-center px-6">
-        <div class="max-w-3xl">
-            <h2 class="font-bold text-4xl mb-4">A private space to reflect, grow, and feel supported.</h2>
-            <p class="text-lg opacity-90">Your personal journal helps you make sense of your thoughts, track your
-                wellbeing, and receive gentle
-                guidance from your care team.</p>
+
+    <section class="min-h-[70vh] flex items-center justify-center text-center">
+        <div class="max-w-2xl space-y-6">
+
+            <h2 class="text-4xl font-bold tracking-tight">
+                A private space to reflect, grow and feel supported.
+            </h2>
+
+            <p class="text-lg text-[#6B7280] leading-relaxed">
+                Your personal journal helps you make sense of your thoughts, track your wellbeing,
+                and receive gentle guidance from your care team.
+            </p>
+
         </div>
     </section>
-    <section>
+
+    <section class="space-y-8">
+
         <div class="flex items-center gap-4">
-            <div class="bg-[#2365dc]/50 h-px flex-1"></div>
-            <span class="font-semibold">How it works
+            <div class="h-px bg-[#E5E7EB] flex-1"></div>
+            <span class="text-sm font-semibold text-[#6B7280] uppercase tracking-wide">
+                How it works
             </span>
-            <div class="bg-[#2365dc]/50 h-px flex-1"></div>
+            <div class="h-px bg-[#E5E7EB] flex-1"></div>
         </div>
-        <ol>
-            <li>
-                Write freely and privately
-                <p>Your journal is your space. Only you can see your entries unless a therapist is assigned to support
+
+        <ol class="grid md:grid-cols-2 gap-6">
+
+            <li class="bg-white p-6 rounded-2xl border border-[#E5E7EB] shadow-sm space-y-2">
+                <h3 class="font-semibold text-lg">Write freely and privately</h3>
+                <p class="text-[#6B7280]">
+                    Your journal is your space. Only you can see your entries unless a therapist is assigned to support
                     you.
                 </p>
             </li>
-            <li>
-                Track your wellbeing over time
-                <p>Simple weekly check-ins, mood, anxiety, and stress help you notice patterns and understand how you're
-                    doing.
+
+            <li class="bg-white p-6 rounded-2xl border border-[#E5E7EB] shadow-sm space-y-2">
+                <h3 class="font-semibold text-lg">Track your wellbeing</h3>
+                <p class="text-[#6B7280]">
+                    Weekly check-ins for mood, anxiety and stress help you notice patterns over time.
                 </p>
             </li>
-            <li>
-                Receive thoughtful support
-                <p>If a therapist is assigned to you, they can leave encouraging comments to help guide your progress.
+
+            <li class="bg-white p-6 rounded-2xl border border-[#E5E7EB] shadow-sm space-y-2">
+                <h3 class="font-semibold text-lg">Receive support</h3>
+                <p class="text-[#6B7280]">
+                    Assigned therapists can leave thoughtful, encouraging feedback to guide you.
                 </p>
             </li>
-            <li>
-                Managed by your care team
-                <p>Therapists and admins use the same secure system to review journals, track wellbeing, and offer
-                    support.
+
+            <li class="bg-white p-6 rounded-2xl border border-[#E5E7EB] shadow-sm space-y-2">
+                <h3 class="font-semibold text-lg">Managed care</h3>
+                <p class="text-[#6B7280]">
+                    Your care team uses the system to support your progress in a safe, structured way.
                 </p>
             </li>
+
         </ol>
+
     </section>
-    <section>
-        <p>Secure. Private. Designed to support your mental wellbeing.</p>
-        <p>Your information is handled with care and only shared with the staff responsible for supporting you.</p>
+
+    <section class="bg-white p-8 rounded-2xl border border-[#E5E7EB] shadow-sm text-center space-y-4">
+
+        <p class="font-medium">
+            Secure. Private. Designed to support your mental wellbeing.
+        </p>
+
+        <p class="text-[#6B7280]">
+            Your information is handled with care and only shared with the staff responsible for supporting you.
+        </p>
+
     </section>
-    <section>
-        <h2>A private space to reflect, grow, and feel supported.</h2>
-        <p>Your personal journal helps you make sense of your thoughts, track your wellbeing, and receive gentle
-            guidance from your care team.</p>
-    </section>
-    <section>
-        <h2>How it works</h2>
-        <ol>
-            <li>
-                Write freely and privately
-                <p>Your journal is your space. Only you can see your entries unless a therapist is assigned to support
-                    you.
-                </p>
-            </li>
-            <li>
-                Track your wellbeing over time
-                <p>Simple weekly check-ins, mood, anxiety, and stress help you notice patterns and understand how you're
-                    doing.
-                </p>
-            </li>
-            <li>
-                Receive thoughtful support
-                <p>If a therapist is assigned to you, they can leave encouraging comments to help guide your progress.
-                </p>
-            </li>
-            <li>
-                Managed by your care team
-                <p>Therapists and admins use the same secure system to review journals, track wellbeing, and offer
-                    support.
-                </p>
-            </li>
-        </ol>
-    </section>
-    <section>
-        <p>Secure. Private. Designed to support your mental wellbeing.</p>
-        <p>Your information is handled with care and only shared with the staff responsible for supporting you.</p>
-    </section>
-    <section>
-        <h2>A private space to reflect, grow, and feel supported.</h2>
-        <p>Your personal journal helps you make sense of your thoughts, track your wellbeing, and receive gentle
-            guidance from your care team.</p>
-    </section>
-    <section>
-        <h2>How it works</h2>
-        <ol>
-            <li>
-                Write freely and privately
-                <p>Your journal is your space. Only you can see your entries unless a therapist is assigned to support
-                    you.
-                </p>
-            </li>
-            <li>
-                Track your wellbeing over time
-                <p>Simple weekly check-ins, mood, anxiety, and stress help you notice patterns and understand how you're
-                    doing.
-                </p>
-            </li>
-            <li>
-                Receive thoughtful support
-                <p>If a therapist is assigned to you, they can leave encouraging comments to help guide your progress.
-                </p>
-            </li>
-            <li>
-                Managed by your care team
-                <p>Therapists and admins use the same secure system to review journals, track wellbeing, and offer
-                    support.
-                </p>
-            </li>
-        </ol>
-    </section>
-    <section>
-        <p>Secure. Private. Designed to support your mental wellbeing.</p>
-        <p>Your information is handled with care and only shared with the staff responsible for supporting you.</p>
-    </section>
-    <section>
-        <h2>A private space to reflect, grow, and feel supported.</h2>
-        <p>Your personal journal helps you make sense of your thoughts, track your wellbeing, and receive gentle
-            guidance from your care team.</p>
-    </section>
-    <section>
-        <h2>How it works</h2>
-        <ol>
-            <li>
-                Write freely and privately
-                <p>Your journal is your space. Only you can see your entries unless a therapist is assigned to support
-                    you.
-                </p>
-            </li>
-            <li>
-                Track your wellbeing over time
-                <p>Simple weekly check-ins, mood, anxiety, and stress help you notice patterns and understand how you're
-                    doing.
-                </p>
-            </li>
-            <li>
-                Receive thoughtful support
-                <p>If a therapist is assigned to you, they can leave encouraging comments to help guide your progress.
-                </p>
-            </li>
-            <li>
-                Managed by your care team
-                <p>Therapists and admins use the same secure system to review journals, track wellbeing, and offer
-                    support.
-                </p>
-            </li>
-        </ol>
-    </section>
-    <section>
-        <p>Secure. Private. Designed to support your mental wellbeing.</p>
-        <p>Your information is handled with care and only shared with the staff responsible for supporting you.</p>
-    </section>
+
 </x-layout>
