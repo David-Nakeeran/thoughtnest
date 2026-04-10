@@ -29,6 +29,16 @@ Route::post('/login', [SessionUserController::class, 'store']);
 Route::post('/logout', [SessionUserController::class, 'destroy'])->name('logout');
 
 // Dashboards
+Route::get('/dashboard', function () {
+    $user = auth()->user();
+
+    return match ($user->role) {
+        'admin' => redirect('/dashboard/admin'),
+        'therapist' => redirect('/dashboard/therapist'),
+        default => redirect('/dashboard/user'),
+    };
+})->middleware('auth');
+
 Route::get('/dashboard/user', [UserDashboardController::class, 'index'])->middleware(['auth', Role::class . ':user']);
 Route::get('/dashboard/therapist', [TherapistDashboardController::class, 'index'])->middleware(['auth', Role::class . ':therapist']);
 Route::get('/dashboard/admin', [AdminDashboardController::class, 'index'])->middleware(['auth', Role::class . ':admin']);

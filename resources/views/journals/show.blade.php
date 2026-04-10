@@ -16,7 +16,7 @@
 
         </div>
 
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3">
 
             <x-journal-modal :update="true" :journal="$journal" type="Edit journal entry" />
 

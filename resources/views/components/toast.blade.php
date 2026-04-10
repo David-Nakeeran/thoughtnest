@@ -3,7 +3,7 @@
         x-transition:enter="transition ease-out duration-400" x-transition:enter-start="opacity-0 translate-x-4"
         x-transition:enter-end="opacity-100 translate-x-0" x-transition:leave="transition ease-in duration-200"
         x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 translate-x-4"
-        class="fixed top-5 right-5 bg-[#effff3] text-[#00a63f] px-4 py-2 rounded shadow-lg">
+        class="fixed top-6 left-1/2 -translate-x-1/2 bg-[#effff3] text-[#00a63f] px-5 py-3 rounded-xl shadow-md text-sm">
         <p>{{ session('success') }}</p>
     </div>
 </div>
