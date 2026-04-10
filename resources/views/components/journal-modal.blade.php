@@ -1,3 +1,4 @@
+@props(['update' => false, 'journal' => null, 'type' => ''])
 <div x-cloak x-data="{ showModal: false }" @keydown.escape ="showModal=false">
 
     <button type="button" @click="showModal = true"

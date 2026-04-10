@@ -7,7 +7,11 @@
 
     @auth()
         <x-nav-link href="/dashboard" :active="request()->is('dashboard')">Dashboard</x-nav-link>
-        <x-nav-link href="/journals" :active="request()->is('journals')">Journals</x-nav-link>
+        @if (auth()->user()->role === 'user')
+            <x-nav-link href="/journals" :active="request()->is('journals')">
+                Journals
+            </x-nav-link>
+        @endif
 
         <form method="POST" action="{{ route('logout') }}">
             @csrf
@@ -53,7 +57,11 @@
 
                 @auth()
                     <x-nav-link href="/dashboard" :active="request()->is('dashboard')">Dashboard</x-nav-link>
-                    <x-nav-link href="/journals" :active="request()->is('journals')">Journals</x-nav-link>
+                    @if (auth()->user()->role === 'user')
+                        <x-nav-link href="/journals" :active="request()->is('journals')">
+                            Journals
+                        </x-nav-link>
+                    @endif
 
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
