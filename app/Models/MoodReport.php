@@ -11,6 +11,13 @@ class MoodReport extends Model
     /** @use HasFactory<\Database\Factories\MoodReportFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        'mood',
+        'anxiety',
+        'stress',
+        'notes'
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
