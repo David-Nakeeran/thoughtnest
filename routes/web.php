@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminTherapistController;
 use App\Http\Controllers\JournalController;
+use App\Http\Controllers\MoodReportController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\RegisteredTherapistController;
 use App\Http\Controllers\SessionUserController;
@@ -61,3 +62,7 @@ Route::delete('/therapist/users/{user}/journals/{journal}/comments/{comment}', [
 // Admin routes
 Route::get('/therapist-assignments', [AdminTherapistController::class, 'index'])->middleware(['auth', Role::class . ':admin']);
 Route::post('/therapist-assignments/{user}', [AdminTherapistController::class, 'store'])->middleware(['auth', Role::class . ':admin']);
+
+// Mood Reports
+Route::get('/mood-reports', [MoodReportController::class, 'create'])->name('mood-reports.create')->middleware(['auth', Role::class . ':user']);
+Route::post('/mood-reports', [MoodReportController::class, 'store'])->middleware(['auth', Role::class . ':user']);
