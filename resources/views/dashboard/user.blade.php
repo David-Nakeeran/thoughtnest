@@ -1,7 +1,5 @@
 <x-layout>
-
     <section class="space-y-6">
-
         <div>
             <h2 class="text-2xl font-semibold">
                 Welcome back, {{ $user['name'] }}
@@ -11,16 +9,16 @@
             </p>
         </div>
         <div class="flex flex-wrap gap-4">
-
             <x-journal-modal type="Add new journal entry" />
-
             <a href="/journals"
                 class="px-4 py-2 rounded-xl border border-[#E5E7EB] text-sm font-medium text-[#1F2937] hover:bg-[#F9FAFB] transition">
                 View all journals
             </a>
-
+            @if (!$hasMoodReportedThisWeek)
+                <a href="{{ route('mood-reports.create') }}">Log this week's mood</a>
+            @else
+                <p>Mood logged for this week.</p>
+            @endif
         </div>
-
     </section>
-
 </x-layout>
