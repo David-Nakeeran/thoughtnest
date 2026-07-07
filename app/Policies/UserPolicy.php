@@ -16,6 +16,11 @@ class UserPolicy
         //
     }
 
+    private function isAssignedTherapist(User $therapist, User $user)
+    {
+        return TherapistAssignment::where('therapist_id', '=', $therapist->id)->where('user_id', '=', $user->id)->exists();
+    }
+
     public function create(User $user)
     {
         return $user->role === 'admin';
@@ -23,11 +28,16 @@ class UserPolicy
 
     public function viewJournals(User $therapist, User $user)
     {
-        return TherapistAssignment::where('therapist_id', '=', $therapist->id)->where('user_id', '=', $user->id)->exists();
+        return $this->isAssignedTherapist($therapist, $user);
     }
 
     public function viewJournal(User $therapist, User $user, Journal $journal)
     {
-        return TherapistAssignment::where('therapist_id', '=', $therapist->id)->where('user_id', '=', $user->id)->exists() && $journal->user_id === $user->id;
+        return $this->isAssignedTherapist($therapist, $user) && $journal->user_id === $user->id;
+    }
+
+    public function viewMoodReports(User $therapist, User $user)
+    {
+        return $this->isAssignedTherapist($therapist, $user);
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Requests\DestroyTherapistCommentRequest;
 use App\Http\Requests\StoreTherapistCommentRequest;
 use App\Models\Comment;
 use App\Models\Journal;
+use App\Models\MoodReport;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -57,5 +58,18 @@ class TherapistUserController extends Controller
         $comment->delete();
 
         return redirect()->route('therapist.users.journals.show', ['journal' => $journal, 'user' => $user]);
+    }
+
+    public function showMoodReports(Request $request, User $user)
+    {
+        if ($request->user()->cannot('viewMoodReports', $user)) {
+            abort(403);
+        }
+
+        $moodReports = MoodReport::where('user_id', $user->id)
+            ->latest()
+            ->paginate(6);
+
+        return view('therapist.users.mood-reports.show', ['moodReport' => $moodReports]);
     }
 }

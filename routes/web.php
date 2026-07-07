@@ -63,6 +63,9 @@ Route::delete('/therapist/users/{user}/journals/{journal}/comments/{comment}', [
 Route::get('/therapist-assignments', [AdminTherapistController::class, 'index'])->middleware(['auth', Role::class . ':admin']);
 Route::post('/therapist-assignments/{user}', [AdminTherapistController::class, 'store'])->middleware(['auth', Role::class . ':admin']);
 
-// Mood Reports
+// User Mood Reports
 Route::get('/mood-reports', [MoodReportController::class, 'create'])->name('mood-reports.create')->middleware(['auth', Role::class . ':user']);
 Route::post('/mood-reports', [MoodReportController::class, 'store'])->middleware(['auth', Role::class . ':user']);
+
+// Therapist Mood Report
+Route::get('/therapist/users/{user}/mood-reports', [TherapistUserController::class, 'showMoodReports'])->name('therapist.users.mood-reports.show')->middleware(['auth', Role::class . ':therapist']);
