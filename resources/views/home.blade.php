@@ -1,75 +1,57 @@
 <x-layout>
-
-    <section class="min-h-[70vh] flex items-center justify-center text-center">
-        <div class="max-w-2xl space-y-6">
-
-            <h2 class="text-4xl font-bold tracking-tight">
-                A private space to reflect, grow and feel supported.
-            </h2>
-
-            <p class="text-lg text-[#6B7280] leading-relaxed">
-                Your personal journal helps you make sense of your thoughts, track your wellbeing,
-                and receive gentle guidance from your care team.
+    <section class="min-h-[65vh] flex items-start justify-center pt-16">
+        <div class="max-w-xl space-y-6">
+            <h1 class="font-display text-5xl font-normal leading-tight text-primary">
+                A quiet space, just for you.
+            </h1>
+            <p class="text-base text-muted leading-relaxed max-w-md">
+                You've been given access to <span class="text-primary-accent font-bold">ThoughtNest</span> as part of
+                your care.
+                This is your private space to
+                write,
+                reflect and stay connected to your therapist while you wait.
             </p>
-
+            <div class="flex flex-wrap gap-3 pt-2">
+                <a href="/register"
+                    class="bg-primary-accent text-white text-sm px-6 py-2.5 rounded-lg hover:opacity-90 transition">
+                    Create your account
+                </a>
+                <a href="/login"
+                    class="text-sm px-6 py-2.5 rounded-lg border border-border text-muted hover:text-primary hover:border-primary-accent transition">
+                    Already have one? Sign in
+                </a>
+            </div>
         </div>
     </section>
-
-    <section class="space-y-8">
-
-        <div class="flex items-center gap-4">
-            <div class="h-px bg-[#E5E7EB] flex-1"></div>
-            <span class="text-sm font-semibold text-[#6B7280] uppercase tracking-wide">
-                How it works
-            </span>
-            <div class="h-px bg-[#E5E7EB] flex-1"></div>
+    <div class="h-px bg-border"></div>
+    <section class="py-8 space-y-8">
+        <p class="text-xs uppercase tracking-widest text-muted font-bold underline underline-offset-8">What you can do
+            here</p>
+        <div class="grid md:grid-cols-3 gap-px bg-border">
+            <div class="bg-background py-6 md:pr-8 px-8 space-y-2">
+                <div class="w-2 h-2 rounded-full bg-primary-accent"></div>
+                <h3 class="text-sm font-medium text-primary">Write freely</h3>
+                <p class="text-sm text-muted leading-relaxed">
+                    Your private journal. Write as much or as little as you like, whenever you need to.
+                </p>
+            </div>
+            <div class="bg-background py-6 px-8 space-y-2">
+                <div class="w-2 h-2 rounded-full bg-primary-accent"></div>
+                <h3 class="text-sm font-medium text-primary">Track your week</h3>
+                <p class="text-sm text-muted leading-relaxed">
+                    A simple weekly check-in for mood, anxiety and stress so you can notice patterns over time.
+                </p>
+            </div>
+            <div class="bg-background py-6 pl-8 space-y-2">
+                <div class="w-2 h-2 rounded-full bg-primary-accent"></div>
+                <h3 class="text-sm font-medium text-primary">Hear from your therapist</h3>
+                <p class="text-sm text-muted leading-relaxed">
+                    Your therapist can leave comments on your journal so you're never just waiting.
+                </p>
+            </div>
         </div>
-
-        <ol class="grid md:grid-cols-2 gap-6">
-
-            <li class="bg-white p-6 rounded-2xl border border-[#E5E7EB] shadow-sm space-y-2">
-                <h3 class="font-semibold text-lg">Write freely and privately</h3>
-                <p class="text-[#6B7280]">
-                    Your journal is your space. Only you can see your entries unless a therapist is assigned to support
-                    you.
-                </p>
-            </li>
-
-            <li class="bg-white p-6 rounded-2xl border border-[#E5E7EB] shadow-sm space-y-2">
-                <h3 class="font-semibold text-lg">Track your wellbeing</h3>
-                <p class="text-[#6B7280]">
-                    Weekly check-ins for mood, anxiety and stress help you notice patterns over time.
-                </p>
-            </li>
-
-            <li class="bg-white p-6 rounded-2xl border border-[#E5E7EB] shadow-sm space-y-2">
-                <h3 class="font-semibold text-lg">Receive support</h3>
-                <p class="text-[#6B7280]">
-                    Assigned therapists can leave thoughtful, encouraging feedback to guide you.
-                </p>
-            </li>
-
-            <li class="bg-white p-6 rounded-2xl border border-[#E5E7EB] shadow-sm space-y-2">
-                <h3 class="font-semibold text-lg">Managed care</h3>
-                <p class="text-[#6B7280]">
-                    Your care team uses the system to support your progress in a safe, structured way.
-                </p>
-            </li>
-
-        </ol>
-
     </section>
-
-    <section class="bg-white p-8 rounded-2xl border border-[#E5E7EB] shadow-sm text-center space-y-4">
-
-        <p class="font-medium">
-            Secure. Private. Designed to support your mental wellbeing.
-        </p>
-
-        <p class="text-[#6B7280]">
-            Your information is handled with care and only shared with the staff responsible for supporting you.
-        </p>
-
-    </section>
-
+    <p class="text-xs text-muted pb-8">
+        Your entries are private. Only your assigned therapist can see them.
+    </p>
 </x-layout>
