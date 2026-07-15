@@ -1,54 +1,56 @@
 <x-layout>
-
-    <section class="flex items-center justify-center min-h-[70vh]">
-
-        <div class="w-full max-w-md bg-white p-8 rounded-2xl border border-[#E5E7EB] shadow-sm space-y-6">
-
-            <div class="text-center space-y-2">
-                <h1 class="text-2xl font-semibold">Create an account</h1>
-                <p class="text-sm text-[#6B7280]">Start your journey with ThoughtNest</p>
+    <section class="min-h-[70vh] flex items-center justify-center px-4">
+        <div class="w-full max-w-md space-y-8">
+            <div class="space-y-3">
+                <h1 class="font-display text-3xl text-primary">
+                    Create your account
+                </h1>
             </div>
-
-            <form method="POST" action="{{ $action }}" class="space-y-4">
+            <form method="POST" action="{{ $action }}" class="space-y-5">
                 @csrf
-
-                <div class="space-y-1">
-                    <label class="text-sm font-medium">Name</label>
-                    <input type="text" name="name" required
-                        class="w-full rounded-xl border border-[#E5E7EB] px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#5B6CFF]/30 focus:border-[#5B6CFF]" />
+                <div class="space-y-1.5">
+                    <label class="text-sm font-medium text-primary">
+                        Name
+                    </label>
+                    <input type="text" name="name" required value="{{ old('name') }}"
+                        class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-sm text-primary focus:outline-none focus:border-primary-accent transition" />
                     <x-form-error field="name" />
                 </div>
-
-                <div class="space-y-1">
-                    <label class="text-sm font-medium">Email</label>
-                    <input type="email" name="email" required
-                        class="w-full rounded-xl border border-[#E5E7EB] px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#5B6CFF]/30 focus:border-[#5B6CFF]" />
+                <div class="space-y-1.5">
+                    <label class="text-sm font-medium text-primary">
+                        Email
+                    </label>
+                    <input type="email" name="email" required value="{{ old('email') }}"
+                        class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-sm text-primary focus:outline-none focus:border-primary-accent transition" />
                     <x-form-error field="email" />
                 </div>
-
-                <div class="space-y-1">
-                    <label class="text-sm font-medium">Password</label>
+                <div class="space-y-1.5">
+                    <label class="text-sm font-medium text-primary">
+                        Password
+                    </label>
                     <input type="password" name="password" required
-                        class="w-full rounded-xl border border-[#E5E7EB] px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#5B6CFF]/30 focus:border-[#5B6CFF]" />
+                        class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-sm text-primary focus:outline-none focus:border-primary-accent transition" />
                     <x-form-error field="password" />
                 </div>
-
-                <div class="space-y-1">
-                    <label class="text-sm font-medium">Confirm Password</label>
+                <div class="space-y-1.5">
+                    <label class="text-sm font-medium text-primary">
+                        Confirm password
+                    </label>
                     <input type="password" name="password_confirmation" required
-                        class="w-full rounded-xl border border-[#E5E7EB] px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#5B6CFF]/30 focus:border-[#5B6CFF]" />
+                        class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-sm text-primary focus:outline-none focus:border-primary-accent transition" />
                     <x-form-error field="password_confirmation" />
                 </div>
-
                 <button type="submit"
-                    class="w-full bg-[#5B6CFF] text-white py-2 rounded-xl text-sm font-medium hover:opacity-90 transition">
-                    Register
+                    class="w-full bg-primary-accent text-white py-3 rounded-lg text-sm font-medium hover:opacity-90 transition">
+                    Create account
                 </button>
-
             </form>
-
+            <p class="text-sm text-muted">
+                Already have an account?
+                <a href="/login" class="text-primary-accent hover:underline">
+                    Sign in
+                </a>
+            </p>
         </div>
-
     </section>
-
 </x-layout>
