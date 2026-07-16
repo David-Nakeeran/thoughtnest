@@ -1,44 +1,41 @@
 <x-layout>
-
-    <section class="space-y-6">
-
-        <div class="flex items-center justify-between">
-            <h1 class="text-2xl font-semibold">Your Journals</h1>
-
-            <x-journal-modal type="New Entry" />
+    <section class="space-y-10">
+        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div class="space-y-2">
+                <h1 class="font-display text-4xl text-primary">
+                    Your journal
+                </h1>
+                <p class="max-w-md text-sm text-muted leading-relaxed">
+                    Every entry is a place to pause, reflect and record your thoughts.
+                </p>
+            </div>
+            <x-journal-modal type="Write a journal entry" />
         </div>
-
-        <div class="grid gap-4">
-
+        <div class="border-t border-border"></div>
+        <div class="space-y-6">
             @foreach ($journals as $entry)
-                <div class="bg-white p-6 rounded-2xl border border-[#E5E7EB] shadow-sm space-y-3">
-
-                    <p class="text-sm leading-relaxed">
-                        {{ substr($entry['content'], 0, 100) }}...
+                <article class="space-y-4 py-2">
+                    <p class="text-primary leading-relaxed">
+                        {{ \Illuminate\Support\Str::limit($entry['content'], 180) }}
                     </p>
-
-                    <div class="text-xs text-[#6B7280] flex justify-between items-center">
-
+                    <div class="flex items-center justify-between text-sm text-muted">
                         <span>
-                            {{ $entry['comments_count'] }} therapist comments
+                            {{ $entry['comments_count'] }}
+                            {{ Str::plural('therapist comment', $entry['comments_count']) }}
                         </span>
-
                         <span>
                             {{ date_format($entry['created_at'], 'd M Y') }}
                         </span>
-
                     </div>
-
                     <a href="/journals/{{ $entry['id'] }}"
-                        class="inline-block text-sm font-medium text-[#5B6CFF] hover:underline">
-                        View entry →
+                        class="inline-block text-sm text-primary-accent hover:underline">
+                        Read entry →
                     </a>
-
-                </div>
+                </article>
+                @unless ($loop->last)
+                    <div class="border-t border-border"></div>
+                @endunless
             @endforeach
-
         </div>
-
     </section>
-
 </x-layout>

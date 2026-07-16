@@ -1,24 +1,39 @@
 <x-layout>
-    <section class="space-y-6">
-        <div>
-            <h2 class="text-2xl font-semibold">
+    <section class="space-y-10">
+        <div class="space-y-3">
+            <h1 class="font-display text-4xl text-primary">
                 Welcome back, {{ $user['name'] }}
-            </h2>
-            <p class="text-[#6B7280] text-sm">
-                Take a moment to reflect or continue your journey.
+            </h1>
+            <p class="text-sm text-muted max-w-md leading-relaxed">
+                Take a moment to check in with yourself or continue writing your thoughts.
             </p>
         </div>
-        <div class="flex flex-wrap gap-4">
-            <x-journal-modal type="Add new journal entry" />
+        <div class="flex flex-wrap gap-3">
+            <x-journal-modal type="Write a journal entry" />
             <a href="/journals"
-                class="px-4 py-2 rounded-xl border border-[#E5E7EB] text-sm font-medium text-[#1F2937] hover:bg-[#F9FAFB] transition">
-                View all journals
+                class="px-5 py-3 rounded-lg border border-border text-sm text-primary hover:bg-surface transition">
+                View your entries
             </a>
-            @if (!$hasMoodReportedThisWeek)
-                <a href="{{ route('mood-reports.create') }}">Log this week's mood</a>
-            @else
-                <p>Mood logged for this week.</p>
-            @endif
+        </div>
+        <div class="border-t border-border pt-8 space-y-4">
+            <div class="space-y-2">
+                <h2 class="font-display text-2xl text-primary">
+                    Weekly check-in
+                </h2>
+                @if (!$hasMoodReportedThisWeek)
+                    <p class="text-sm text-muted">
+                        How have you been feeling this week?
+                    </p>
+                    <a href="{{ route('mood-reports.create') }}"
+                        class="inline-block text-sm text-primary-accent hover:underline">
+                        Complete your check-in →
+                    </a>
+                @else
+                    <p class="text-sm text-muted">
+                        Your mood check-in has been completed for this week.
+                    </p>
+                @endif
+            </div>
         </div>
     </section>
 </x-layout>
