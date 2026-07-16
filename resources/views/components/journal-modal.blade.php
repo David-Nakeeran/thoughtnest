@@ -1,27 +1,28 @@
 @props(['update' => false, 'journal' => null, 'type' => ''])
-<div x-cloak x-data="{ showModal: false }" @keydown.escape ="showModal=false">
 
+<div x-cloak x-data="{ showModal: false }" @keydown.escape.window="showModal = false">
     <button type="button" @click="showModal = true"
-        class="px-4 py-2 bg-[#5B6CFF] text-white text-sm font-medium rounded-xl hover:opacity-90 transition">
+        class="px-5 py-3 bg-primary-accent text-white text-sm rounded-lg hover:opacity-90 transition">
         {{ $type }}
     </button>
-
-    <div class="fixed inset-0 z-30 flex items-center justify-center bg-black/40 backdrop-blur-sm" x-show="showModal">
-
-        <div class="w-full max-w-2xl bg-white rounded-2xl shadow-lg border border-[#E5E7EB] p-6 space-y-4"
-            @click.away="showModal = false" x-show="showModal">
-
-            <div class="flex items-center justify-between">
-                <h5 class="text-lg font-semibold">{{ $type }}</h5>
-
-                <button @click="showModal = false" class="text-[#6B7280] hover:text-[#1F2937] transition">
+    <div x-show="showModal" x-transition.opacity
+        class="fixed inset-0 z-40 flex items-center justify-center bg-black/30 backdrop-blur-sm p-4">
+        <div @click.away="showModal = false" x-show="showModal" x-transition
+            class="w-full max-w-2xl rounded-lg border border-border bg-surface p-8">
+            <div class="flex items-start justify-between mb-8">
+                <div>
+                    <h2 class="font-display text-3xl text-primary">
+                        {{ $type }}
+                    </h2>
+                    <p class="mt-1 text-sm text-muted">
+                        Write freely. You can come back and edit this later if you need to.
+                    </p>
+                </div>
+                <button @click="showModal = false" class="text-muted hover:text-primary transition" aria-label="Close">
                     ✕
                 </button>
             </div>
-
             <x-journal-form :update="$update" :journal="$journal" />
-
         </div>
     </div>
-
 </div>
