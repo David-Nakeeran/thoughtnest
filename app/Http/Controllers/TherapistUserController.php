@@ -70,6 +70,6 @@ class TherapistUserController extends Controller
             ->latest()
             ->paginate(6);
 
-        return view('therapist.users.mood-reports.show', ['moodReport' => $moodReports]);
+        return view('therapist.users.mood-reports.show', ['moodReport' => $moodReports, 'user' => $user]);
     }
 }
