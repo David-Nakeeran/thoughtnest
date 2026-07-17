@@ -1,28 +1,40 @@
 <x-layout>
-    <section class="space-y-6">
-        <div>
-            <h1 class="text-2xl font-semibold">Therapist Dashboard</h1>
-            <p class="text-sm text-[#6B7280]">
-                View and support your assigned users.
+    <section class="space-y-10">
+        <div class="space-y-2">
+            <h1 class="font-display text-4xl text-primary">
+                Your patients
+            </h1>
+            <p class="max-w-lg text-sm text-muted leading-relaxed">
+                These are the people currently assigned to your care. You can review their journal entries and weekly
+                check ins.
             </p>
         </div>
-        <div class="grid gap-4">
+        <div class="border-t border-border"></div>
+        <div class="space-y-6">
             @foreach ($assignedUsers as $item)
-                <div
-                    class="bg-white p-5 rounded-2xl border border-[#E5E7EB] shadow-sm hover:shadow-md transition flex items-center justify-between">
-
-                    <span class="font-medium">
-                        {{ $item->user->name }}
-                    </span>
-                    <div class="flex gap-5">
-                        <a href="/therapist/users/{{ $item->user->id }}/mood-reports" class="text-sm text-[#5B6CFF]">View
-                            Mood Reports →
+                <article class="flex flex-col gap-5 py-2 md:flex-row md:items-center md:justify-between">
+                    <div>
+                        <h2 class="text-lg font-medium text-primary">
+                            {{ $item->user->name }}
+                        </h2>
+                        <p class="text-sm text-muted">
+                            Assigned patient
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-5 text-sm">
+                        <a href="/therapist/users/{{ $item->user->id }}/journals"
+                            class="text-primary-accent hover:underline">
+                            View journal →
                         </a>
-                        <a href="/therapist/users/{{ $item->user->id }}/journals" class="text-sm text-[#5B6CFF]">
-                            View Journals →
+                        <a href="/therapist/users/{{ $item->user->id }}/mood-reports"
+                            class="text-primary-accent hover:underline">
+                            View mood reports →
                         </a>
                     </div>
-                </div>
+                </article>
+                @unless ($loop->last)
+                    <div class="border-t border-border"></div>
+                @endunless
             @endforeach
         </div>
     </section>

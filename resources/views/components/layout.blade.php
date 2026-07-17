@@ -37,7 +37,7 @@
     </main>
     <footer class="border-t border-border mt-12">
         <div class="max-w-6xl mx-auto px-6 py-6 text-sm text-muted text-center">
-            &copy; 2025 ThoughtNest
+            &copy; 2026 ThoughtNest
         </div>
     </footer>
 </body>
