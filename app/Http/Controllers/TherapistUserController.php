@@ -67,7 +67,7 @@ class TherapistUserController extends Controller
         }
 
         $moodReports = MoodReport::where('user_id', $user->id)
-            ->latest()
+            ->oldest()
             ->paginate(6);
 
         return view('therapist.users.mood-reports.show', ['moodReport' => $moodReports, 'user' => $user]);

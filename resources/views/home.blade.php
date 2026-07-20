@@ -39,7 +39,8 @@
                 <div class="w-2 h-2 rounded-full bg-primary-accent"></div>
                 <h3 class="text-sm font-medium text-primary">Track your week</h3>
                 <p class="text-sm text-muted leading-relaxed">
-                    A simple weekly check-in for mood, anxiety and stress so you can notice patterns over time.
+                    A simple weekly check in for mood, anxiety and stress to help you reflect on how you've been
+                    feeling.
                 </p>
             </div>
             <div class="bg-background py-6 pl-8 space-y-2">
