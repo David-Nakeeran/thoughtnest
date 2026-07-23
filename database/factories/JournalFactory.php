@@ -19,7 +19,7 @@ class JournalFactory extends Factory
     {
         return [
             'user_id' => User::inRandomOrder()->first()->id,
-            'content' => fake()->text()
+            'content' => $this->faker->text()
         ];
     }
 }

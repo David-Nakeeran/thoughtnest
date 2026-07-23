@@ -17,9 +17,9 @@ class MoodReportFactory extends Factory
      */
     public function definition(): array
     {
-        $mood = fake()->numberBetween(1, 10);
-        $anxiety = fake()->numberBetween(1, 10);
-        $stress = fake()->numberBetween(1, 10);
+        $mood = $this->faker->numberBetween(1, 10);
+        $anxiety = $this->faker->numberBetween(1, 10);
+        $stress = $this->faker->numberBetween(1, 10);
 
         return [
             'user_id' => User::inRandomOrder()->first()->id,
