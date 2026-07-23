@@ -62,7 +62,6 @@ class DatabaseSeeder extends Seeder
             'mood' => 4,
             'anxiety' => 8,
             'stress' => 7,
-            'total_score' => 19,
             'notes' => 'Feeling overwhelmed with work.',
         ]);
 
@@ -71,7 +70,6 @@ class DatabaseSeeder extends Seeder
             'mood' => 6,
             'anxiety' => 6,
             'stress' => 5,
-            'total_score' => 17,
             'notes' => 'A better week overall.',
         ]);
 
