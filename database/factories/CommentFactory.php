@@ -21,7 +21,7 @@ class CommentFactory extends Factory
         return [
             'journal_id' => Journal::inRandomOrder()->first()->id,
             'user_id' => User::where('role', 'therapist')->inRandomOrder()->first()->id,
-            'comment' => $this->faker->text()
+            'comment' => fake()->text()
         ];
     }
 }
