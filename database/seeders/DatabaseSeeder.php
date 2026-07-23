@@ -21,22 +21,25 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Demo users
-        $admin = User::factory()->admin()->create([
+        $admin = User::create([
             'name' => 'Admin User',
             'email' => 'admin@thoughtnest.demo',
             'password' => Hash::make('Password@123'),
+            'role' => 'admin',
         ]);
 
-        $therapist = User::factory()->therapist()->create([
+        $therapist = User::create([
             'name' => 'Sarah Jane',
             'email' => 'therapist@thoughtnest.demo',
             'password' => Hash::make('Password@123'),
+            'role' => 'therapist',
         ]);
 
-        $patient = User::factory()->user()->create([
+        $patient = User::create([
             'name' => 'Jim Carter',
             'email' => 'patient@thoughtnest.demo',
             'password' => Hash::make('Password@123'),
+            'role' => 'user',
         ]);
 
         TherapistAssignment::create([
