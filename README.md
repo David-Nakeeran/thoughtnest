@@ -26,11 +26,11 @@ The project was built as a portfolio application to explore Laravel concepts inc
 
 The application includes seeded demo accounts for each role.
 
-| Role      | Email                      | Password        |
-| --------- | -------------------------- | --------------- |
-| Admin     | admin@thoughtnest.demo     | ThoughtNest123! |
-| Therapist | therapist@thoughtnest.demo | ThoughtNest123! |
-| Patient   | patient@thoughtnest.demo   | ThoughtNest123! |
+| Role      | Email                      | Password     |
+| --------- | -------------------------- | ------------ |
+| Admin     | admin@thoughtnest.demo     | Password@123 |
+| Therapist | therapist@thoughtnest.demo | Password@123 |
+| Patient   | patient@thoughtnest.demo   | Password@123 |
 
 ---
 
