@@ -9,6 +9,7 @@ use App\Models\TherapistAssignment;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,26 +20,68 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Demo users
+        $admin = User::factory()->admin()->create([
+            'name' => 'Admin User',
+            'email' => 'admin@thoughtnest.demo',
+            'password' => Hash::make('Password@123'),
+        ]);
 
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $therapist = User::factory()->therapist()->create([
+            'name' => 'Sarah Jane',
+            'email' => 'therapist@thoughtnest.demo',
+            'password' => Hash::make('Password@123'),
+        ]);
 
-        // 1. Users first
-        User::factory(10)->create();
+        $patient = User::factory()->user()->create([
+            'name' => 'Jim Carter',
+            'email' => 'patient@thoughtnest.demo',
+            'password' => Hash::make('Password@123'),
+        ]);
 
-        // 2. Journals
-        Journal::factory(10)->create();
+        TherapistAssignment::create([
+            'therapist_id' => $therapist->id,
+            'user_id' => $patient->id,
+        ]);
 
-        // 3. Comments
-        Comment::factory(10)->create();
+        $journal1 = Journal::create([
+            'user_id' => $patient->id,
+            'content' => 'I found it difficult to concentrate today, but getting outside for a short walk helped me settle my thoughts.',
+        ]);
 
-        // 4. Therapist assignments
-        TherapistAssignment::factory(10)->create();
+        $journal2 = Journal::create([
+            'user_id' => $patient->id,
+            'content' => 'This week has been much better. I have been sleeping more consistently and I feel less overwhelmed at work.',
+        ]);
 
-        // 5. Mood reports
-        MoodReport::factory(10)->create();
+        MoodReport::create([
+            'user_id' => $patient->id,
+            'mood' => 4,
+            'anxiety' => 8,
+            'stress' => 7,
+            'total_score' => 19,
+            'notes' => 'Feeling overwhelmed with work.',
+        ]);
+
+        MoodReport::create([
+            'user_id' => $patient->id,
+            'mood' => 6,
+            'anxiety' => 6,
+            'stress' => 5,
+            'total_score' => 17,
+            'notes' => 'A better week overall.',
+        ]);
+
+        Comment::create([
+            'journal_id' => $journal1->id,
+            'user_id' => $therapist->id,
+            'comment' => 'Thank you for sharing this. It is encouraging that you recognised going for a walk helped. Try to notice any other activities that have a similar effect.',
+        ]);
+
+        Comment::create([
+            'journal_id' => $journal2->id,
+            'user_id' => $therapist->id,
+            'comment' => 'It is great to hear that your sleep has improved. We can discuss what has been helping during our next session.',
+        ]);
     }
 }
