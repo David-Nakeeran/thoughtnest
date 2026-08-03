@@ -6,7 +6,9 @@ use App\Http\Requests\DestroyJournalRequest;
 use App\Http\Requests\StoreJournalRequest;
 use App\Http\Requests\UpdateJournalRequest;
 use App\Models\Journal;
+use App\Models\TherapistAssignment;
 use App\Models\User;
+use App\Notifications\JournalSubmitted;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,6 +44,12 @@ class JournalController extends Controller
         $createJournal = $request->user()->journals()->create($request->validated());
 
         $request->session()->flash('success', 'Your journal entry has been created.');
+
+        $assignment = TherapistAssignment::where('user_id', $createJournal->user_id)->first();
+
+        if ($assignment) {
+            $assignment->therapist->notify(new JournalSubmitted($createJournal));
+        };
 
         return redirect('/dashboard/user');
     }
