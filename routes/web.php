@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminTherapistController;
 use App\Http\Controllers\JournalController;
 use App\Http\Controllers\MoodReportController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\RegisteredTherapistController;
 use App\Http\Controllers\SessionUserController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\TherapistDashboardController;
 use App\Http\Controllers\TherapistUserController;
 use App\Http\Controllers\UserDashboardController;
 use App\Http\Middleware\Role;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -69,3 +71,6 @@ Route::post('/mood-reports', [MoodReportController::class, 'store'])->middleware
 
 // Therapist Mood Report
 Route::get('/therapist/users/{user}/mood-reports', [TherapistUserController::class, 'showMoodReports'])->name('therapist.users.mood-reports.show')->middleware(['auth', Role::class . ':therapist']);
+
+// Notifications
+Route::patch('/notifications/{notification}/read', [NotificationController::class, 'markNotificationAsRead'])->name('notifications.read')->middleware('auth');
