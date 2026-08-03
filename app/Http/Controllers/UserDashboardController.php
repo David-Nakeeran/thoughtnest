@@ -23,9 +23,12 @@ class UserDashboardController extends Controller
             )
             ->exists();
 
+        $notifications = $user->unreadNotifications;
+
         return view('dashboard.user', [
             'user' => $user,
-            'hasMoodReportedThisWeek' => $hasMoodReportedThisWeek
+            'hasMoodReportedThisWeek' => $hasMoodReportedThisWeek,
+            'notifications' => $notifications
         ]);
     }
 }

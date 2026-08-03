@@ -8,6 +8,7 @@ use App\Models\Comment;
 use App\Models\Journal;
 use App\Models\MoodReport;
 use App\Models\User;
+use App\Notifications\TherapistSubmitted;
 use Illuminate\Http\Request;
 
 class TherapistUserController extends Controller
@@ -46,6 +47,8 @@ class TherapistUserController extends Controller
                 'user_id' => $user->id,
             ])->all()
         );
+
+        $journal->user->notify(new TherapistSubmitted($createdComment));
 
         $request->session()->flash('success', 'Your comment has been created.');
 

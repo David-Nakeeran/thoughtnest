@@ -19,4 +19,9 @@ class TherapistAssignment extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function therapist(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'therapist_id');
+    }
 }

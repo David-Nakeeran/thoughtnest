@@ -16,6 +16,8 @@ class TherapistDashboardController extends Controller
 
         $assignedUsers = TherapistAssignment::where('therapist_id', '=', $user->id)->with('user')->get();
 
-        return view('dashboard.therapist', ['user' => $user, 'assignedUsers' => $assignedUsers]);
+        $notifications = $user->unreadNotifications;
+
+        return view('dashboard.therapist', ['user' => $user, 'assignedUsers' => $assignedUsers, 'notifications' => $notifications]);
     }
 }
