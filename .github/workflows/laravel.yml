@@ -24,8 +24,20 @@ jobs:
       - name: Copy environment file
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
-      - name: Install dependencies
+      - name: Install Composer dependencies
         run: composer install --no-ansi --no-interaction --no-progress --prefer-dist
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Build frontend assets
+        run: npm run build
 
       - name: Generate application key
         run: php artisan key:generate
