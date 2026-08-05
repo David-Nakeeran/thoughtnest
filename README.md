@@ -16,6 +16,10 @@ The project was built as a portfolio application to explore Laravel concepts inc
 
 ![Homepage continued](screenshots/homepage-2.png)
 
+### Dashboard Notification
+
+![Homepage](screenshots/notification.png)
+
 ### Therapist mood tracking
 
 ![Mood trends](screenshots/mood-report.png)
@@ -43,6 +47,7 @@ The application includes seeded demo accounts for each role.
 - Complete weekly mood check ins.
 - View supportive comments from their assigned therapist.
 - Access restricted to their own data.
+- Receive dashboard notifications when a therapist comments on a journal entry.
 
 ### Therapist
 
@@ -52,6 +57,7 @@ The application includes seeded demo accounts for each role.
 - Leave supportive comments on journal entries.
 - Delete comments when required.
 - Access enforced using Laravel policies.
+- Receive dashboard notifications when an assigned patient submits a journal entry.
 
 ### Administrator
 
@@ -70,6 +76,7 @@ The application includes seeded demo accounts for each role.
 - **Testing:** Pest.
 - **Authentication:** Laravel Authentication.
 - **Authorisation:** Policies, Middleware, Form Requests.
+- **CI:** GitHub Actions.
 
 ---
 
@@ -115,15 +122,14 @@ Building ThoughtNest strengthened my understanding of:
 - RESTful application structure.
 - Building applications with multiple user roles.
 - Visualising application data with Chart.js.
+- Laravel database notifications.
+- Creating continuous integration workflows with GitHub Actions.
 
 ---
 
 ## Future Improvements
 
-- Real time notification system
-    - Notify patients when a therapist comments on a journal entry.
-    - Notify therapists when a patient submits a journal entry or weekly check-in.
+- Real time notifications using broadcasting and WebSockets.
 - Email notifications.
-- Deployment to Laravel Cloud.
 - Accessibility improvements.
 - Therapist dashboard enhancements.
